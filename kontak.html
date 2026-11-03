@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | TK Muhammadiyah Saga</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root {
+            --blue: #77addb;
+            --blue-dark: #345b7e;
+            --blue-light: #edf7ff;
+            --pink: #f3b9d1;
+            --pink-light: #fff0f6;
+            --text: #465b70;
+            --muted: #77899a;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fbfdff;
+            color: var(--text);
+            font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* HEADER */
+        header {
+            position: relative;
+            z-index: 5;
+        }
+
+        header .logo {
+            font-weight: 800;
+        }
+
+        nav a {
+            transition: color .25s ease, background .25s ease;
+        }
+
+        /* HERO */
+        .contact-page {
+            overflow: hidden;
+        }
+
+        .contact-hero {
+            position: relative;
+            padding: 75px 22px 85px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 12% 25%, #ffffff 0 5px, transparent 6px),
+                radial-gradient(circle at 87% 35%, #ffffff 0 6px, transparent 7px),
+                linear-gradient(135deg, #eaf6ff, #fff0f7);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 17px;
+            border: 1px solid #ffffff;
+            border-radius: 50px;
+            background: rgba(255,255,255,.85);
+            color: #557da2;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .contact-hero h1 {
+            margin: 23px 0 15px;
+            color: var(--blue-dark);
+            font-size: clamp(32px, 5vw, 53px);
+            line-height: 1.18;
+            letter-spacing: -1.4px;
+        }
+
+        .contact-hero h1 span {
+            color: #dc8db2;
+        }
+
+        .hero-description {
+            max-width: 640px;
+            margin: 0 auto;
+            color: #61778c;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            user-select: none;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .deco-star {
+            top: 26%;
+            left: 12%;
+            font-size: 38px;
+            color: #f0c96f;
+        }
+
+        .deco-cloud {
+            top: 18%;
+            right: 12%;
+            font-size: 49px;
+            animation-delay: 1s;
+        }
+
+        .deco-heart {
+            right: 18%;
+            bottom: 18%;
+            font-size: 29px;
+            animation-delay: 1.5s;
+        }
+
+        .deco-flower {
+            left: 18%;
+            bottom: 18%;
+            font-size: 29px;
+            animation-delay: .7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        /* SECTION */
+        .contact-container {
+            max-width: 1120px;
+            padding: 65px 22px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin: 0 auto 38px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            color: #d887ac;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin: 10px 0 12px;
+            color: var(--blue-dark);
+            font-size: clamp(26px, 4vw, 35px);
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* CONTACT CARDS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .contact-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 31px 23px 27px;
+            min-width: 0;
+            text-align: center;
+            background: white;
+            border: 1px solid #edf0f5;
+            border-radius: 25px;
+            box-shadow: 0 9px 28px rgba(65, 100, 135, .07);
+            transition: transform .3s ease, box-shadow .3s ease;
+            animation: appear .7s ease both;
+        }
+
+        .contact-card:nth-child(2) {
+            animation-delay: .12s;
+        }
+
+        .contact-card:nth-child(3) {
+            animation-delay: .24s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(65, 100, 135, .13);
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            border-radius: 0 0 10px 10px;
+            background: var(--card-color, var(--blue));
+        }
+
+        .contact-icon {
+            display: grid;
+            place-items: center;
+            width: 76px;
+            height: 76px;
+            margin-bottom: 19px;
+            border-radius: 25px;
+            background: var(--icon-bg, var(--blue-light));
+            font-size: 35px;
+            transition: transform .3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: rotate(-7deg) scale(1.08);
+        }
+
+        .contact-card h3 {
+            margin: 0 0 10px;
+            color: var(--blue-dark);
+            font-size: 21px;
+        }
+
+        .contact-card p {
+            margin: 5px 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-detail {
+            overflow-wrap: anywhere;
+            color: #405d78 !important;
+            font-weight: 700;
+        }
+
+        .contact-tag {
+            display: inline-block;
+            margin: 11px 0 4px;
+            padding: 6px 11px;
+            border-radius: 30px;
+            background: var(--icon-bg, var(--blue-light));
+            color: #55748f;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: auto;
+            padding: 13px 15px;
+            min-height: 47px;
+            border: 0;
+            border-radius: 14px;
+            background: var(--button-bg, #eaf5ff);
+            color: var(--button-color, #345b7e);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform .25s ease, filter .25s ease;
+        }
+
+        .contact-card .contact-button {
+            margin-top: 22px;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(.97);
+        }
+
+        .contact-button:focus-visible {
+            outline: 3px solid #345b7e;
+            outline-offset: 4px;
+        }
+
+        /* WELCOME STRIP */
+        .friendly-strip {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-top: 35px;
+            padding: 25px 29px;
+            border: 1px solid #f5e3ed;
+            border-radius: 23px;
+            background: linear-gradient(110deg, #fff1f7, #f0f8ff);
+        }
+
+        .friendly-character {
+            display: grid;
+            flex-shrink: 0;
+            place-items: center;
+            width: 76px;
+            height: 76px;
+            border-radius: 23px;
+            background: white;
+            font-size: 42px;
+        }
+
+        .friendly-strip h3 {
+            margin: 0 0 7px;
+            color: var(--blue-dark);
+        }
+
+        .friendly-strip p {
+            margin: 0;
+            color: #718397;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* LOCATION */
+        .location-section {
+            padding: 0 22px 70px;
+        }
+
+        .location-card {
+            display: grid;
+            grid-template-columns: 1fr .9fr;
+            gap: 30px;
+            align-items: center;
+            max-width: 1076px;
+            margin: auto;
+            padding: 32px;
+            border: 1px solid #e7eef7;
+            border-radius: 27px;
+            background: white;
+            box-shadow: 0 10px 32px rgba(65, 100, 135, .06);
+        }
+
+        .location-illustration {
+            display: grid;
+            place-items: center;
+            min-height: 260px;
+            padding: 20px;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 15% 18%, white 0 5px, transparent 6px),
+                linear-gradient(140deg, #e5f4ff, #fff0f7);
+            font-size: 86px;
+        }
+
+        .location-copy h2 {
+            margin: 0 0 13px;
+            color: var(--blue-dark);
+            font-size: 28px;
+        }
+
+        .location-copy p {
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        .location-note {
+            padding: 12px 14px;
+            border-left: 3px solid var(--pink);
+            border-radius: 5px 12px 12px 5px;
+            background: #fff6fa;
+            font-size: 13px;
+        }
+
+        .location-copy .contact-button {
+            width: auto;
+            margin-top: 10px;
+            padding: 13px 19px;
+            background: var(--blue-dark);
+            color: white;
+        }
+
+        /* FOOTER */
+        .contact-footer {
+            padding: 29px 20px;
+            text-align: center;
+            background: #edf6ff;
+            color: #607b94;
+            font-size: 13px;
+        }
+
+        .contact-footer strong {
+            color: var(--blue-dark);
+        }
+
+        .contact-footer p {
+            margin: 5px 0;
+            line-height: 1.8;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                max-width: 520px;
+                margin: auto;
+            }
+
+            .contact-card {
+                padding: 27px 23px;
+            }
+
+            .location-card {
+                grid-template-columns: 1fr;
+                padding: 22px;
+            }
+
+            .location-illustration {
+                min-height: 190px;
+                font-size: 70px;
+            }
+
+            .deco-star {
+                left: 5%;
+            }
+
+            .deco-cloud {
+                right: 5%;
+            }
+
+            .deco-flower {
+                left: 7%;
+            }
+
+            .deco-heart {
+                right: 7%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding: 57px 20px 65px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .contact-container {
+                padding: 48px 18px;
+            }
+
+            .friendly-strip {
+                align-items: flex-start;
+                gap: 14px;
+                padding: 20px 16px;
+            }
+
+            .friendly-character {
+                width: 55px;
+                height: 55px;
+                border-radius: 17px;
+                font-size: 30px;
+            }
+
+            .location-copy h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }/* Foto kecil di kiri, informasi di kanan */
+        .location-card.location-horizontal {
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
+            align-items: center;
+            gap: 28px;
+            padding: 24px;
+        }
+
+        .location-card .location-photo {
+            width: 100%;
+            height: 190px;
+            min-height: 0;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .location-card .location-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .location-card.location-horizontal {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .location-card .location-photo {
+                height: 200px;
+            }
+        }/* PERBAIKAN HEADER DAN NAVIGASI */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header .logo {
+    color: #244c70;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+header nav a {
+    color: #244c70;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: #d985ad;
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">TK Muhammadiyah Saga</div>
+
+        <nav>
+            <a href="../index.html">Beranda</a>
+            <a href="profil.html">Profil Sekolah</a>
+            <a href="pembelajaran.html">Pembelajaran</a>
+            <a href="orang-tua.php">Orang Tua</a>
+            <a href="galeri.html">Galeri</a>
+            <a href="kontak.html" class="active">Kontak</a>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+
+        <!-- HERO -->
+        <section class="contact-hero">
+            <span class="hero-decoration deco-star" aria-hidden="true">✦</span>
+            <span class="hero-decoration deco-cloud" aria-hidden="true">☁️</span>
+            <span class="hero-decoration deco-heart" aria-hidden="true">♡</span>
+            <span class="hero-decoration deco-flower" aria-hidden="true">🌼</span>
+
+            <div class="hero-inner">
+                <span class="hero-label">🌈 SENANG BISA TERHUBUNG!</span>
+
+                <h1>
+                    Yuk, Kenali Lebih Dekat
+                    <span>TK Muhammadiyah Saga!</span>
+                </h1>
+
+                <p class="hero-description">
+                    Ada yang ingin ditanyakan tentang sekolah atau kegiatan
+                    belajar anak? Kami menyediakan informasi kontak agar
+                    orang tua dan masyarakat lebih mudah terhubung dengan sekolah.
+                </p>
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="contact-container">
+
+            <div class="section-heading">
+                <span class="section-kicker">Kami Siap Terhubung</span>
+                <h2>Temukan Cara Menghubungi Kami 💌</h2>
+                <p>
+                    Pilih saluran komunikasi yang paling nyaman untuk kamu.
+                    Klik tombol pada kartu untuk melanjutkan.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- WHATSAPP -->
+                <article class="contact-card"
+                    style="--card-color:#6dc69a;--icon-bg:#e6f8ee;--button-bg:#e6f8ee;--button-color:#267c53">
+
+                    <div class="contact-icon" aria-hidden="true">💬</div>
+
+                    <h3>WhatsApp</h3>
+
+                    <p>Ingin bertanya langsung mengenai informasi sekolah?</p>
+
+                    <span class="contact-tag">KONTAK SEKOLAH</span>
+
+                    <p class="contact-detail">081355026446</p>
+                    <p>Kontak: Ibu Nurlayli</p>
+
+                    <a class="contact-button"
+                       href="https://wa.me/6281355026446"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Hubungi via WhatsApp ↗
+                    </a>
+                </article>
+
+                <!-- INSTAGRAM -->
+                <article class="contact-card"
+                    style="--card-color:#e6a0c0;--icon-bg:#fff0f6;--button-bg:#fff0f6;--button-color:#a54d7b">
+
+                    <div class="contact-icon" aria-hidden="true">📸</div>
+
+                    <h3>Instagram</h3>
+
+                    <p>Kenali sekolah melalui akun media sosialnya.</p>
+
+                    <span class="contact-tag">MEDIA SOSIAL</span>
+
+                    <p class="contact-detail">TK Muhammadiyah Saga</p>
+                    <p>Instagram sekolah</p>
+
+                    <a class="contact-button"
+                       href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Buka Instagram ↗
+                    </a>
+                </article>
+
+                <!-- EMAIL -->
+                <article class="contact-card"
+                    style="--card-color:#83b7e5;--icon-bg:#eaf5ff;--button-bg:#eaf5ff;--button-color:#345b7e">
+
+                    <div class="contact-icon" aria-hidden="true">✉️</div>
+
+                    <h3>Email Sekolah</h3>
+
+                    <p>Gunakan email untuk menyampaikan pesan kepada sekolah.</p>
+
+                    <span class="contact-tag">SURAT ELEKTRONIK</span>
+
+                    <p class="contact-detail">
+                        tkmuhammadiyahsaga@gmail.com
+                    </p>
+
+                    <p>Komunikasi melalui email</p>
+
+                    <a class="contact-button"
+                       href="mailto:tkmuhammadiyahsaga@gmail.com">
+                        Kirim Email ↗
+                    </a>
+                </article>
+
+            </div>
+
+            <!-- PESAN RAMAH -->
+            <div class="friendly-strip">
+                <div class="friendly-character" aria-hidden="true">🧸</div>
+
+                <div>
+                    <h3>Setiap Anak Berhak Tumbuh dengan Bahagia!</h3>
+
+                    <p>
+                        Terima kasih telah mengenal TK Muhammadiyah Saga.
+                        Semoga informasi di website ini membantu orang tua
+                        dan masyarakat mengenal kegiatan sekolah dengan lebih mudah.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- LOKASI SEKOLAH -->
+        <section class="location-section">
+            <div class="location-card location-horizontal">
+
+                <!-- Foto sekolah di sebelah kiri -->
+                <div class="location-illustration location-photo">
+                    <img
+                        src="../Assets/Images/images/foto-sekolah.jpeg"
+                        alt="Gedung TK Muhammadiyah Saga">
+                </div>
+
+                <!-- Informasi di sebelah kanan -->
+                <div class="location-copy">
+                    <span class="section-kicker">📍 Lokasi Sekolah</span>
+
+                    <h2>Temukan Lokasi Kami</h2>
+
+                    <p>
+                        Ingin mengetahui lokasi TK Muhammadiyah Saga?
+                        Gunakan Google Maps untuk mencari sekolah dan
+                        memeriksa petunjuk arah yang tersedia.
+                    </p>
+
+                    <p class="location-note">
+                        Periksa kembali hasil pencarian agar sesuai
+                        dengan lokasi sekolah yang benar.
+                    </p>
+
+                    <a class="contact-button"
+                       href="https://www.google.com/maps/search/?api=1&query=TK+Muhammadiyah+Saga"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        📍 Cari di Google Maps ↗
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="contact-footer">
+        <p><strong>TK Muhammadiyah Saga</strong></p>
+        <p>Website Media Informasi Sekolah</p>
+        <p>© 2026 TK Muhammadiyah Saga. Semua hak dilindungi.</p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>

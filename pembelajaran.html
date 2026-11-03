@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Pembelajaran | TK Muhammadiyah Saga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #8bc5ed;
+      --blue-dark: #28567e;
+      --blue-soft: #edf7ff;
+      --pink: #f3a9ca;
+      --pink-dark: #c86697;
+      --pink-soft: #fff0f7;
+      --ink: #27394b;
+      --muted: #718096;
+      --white: #fff;
+      --line: #e6edf4;
+      --shadow: 0 14px 35px rgba(48, 86, 120, .10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Nunito", Arial, sans-serif;
+      color: var(--ink);
+      background: #fbfdff;
+      line-height: 1.65;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .nav-wrap {
+      min-height: 78px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 220px; }
+    .brand-mark {
+      width: 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 16px; background: var(--blue-soft); font-size: 25px;
+    }
+    .brand strong { display: block; color: var(--blue-dark); font-size: 16px; line-height: 1.25; }
+    .brand small { color: var(--muted); font-size: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a {
+      padding: 9px 13px; border-radius: 999px; font-size: 13px;
+      font-weight: 800; color: #526579; transition: .2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { background: var(--pink-soft); color: var(--pink-dark); }
+
+    .hero { padding: 54px 0 46px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 48px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px;
+      border-radius: 999px; background: var(--pink-soft); color: var(--pink-dark);
+      font-size: 12px; font-weight: 900; letter-spacing: .5px;
+    }
+    h1 { color: var(--blue-dark); font-size: clamp(36px, 4.4vw, 54px); line-height: 1.12; margin: 17px 0 18px; letter-spacing: -1.2px; }
+    .hero-copy { color: #64768a; font-size: 16px; max-width: 530px; margin: 0 0 25px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 999px; padding: 12px 19px; font-weight: 900; font-size: 13px;
+      border: 1px solid transparent; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 9px 18px rgba(40,86,126,.12); }
+    .btn-primary { background: var(--blue-dark); color: white; }
+    .btn-secondary { background: white; border-color: #d8e6f1; color: var(--blue-dark); }
+    .hero-visual { position: relative; padding: 10px 10px 20px; }
+    .hero-photo {
+      height: 370px; border-radius: 30px; background: var(--blue-soft);
+      border: 8px solid white; box-shadow: var(--shadow);
+    }
+    .photo-label {
+      position: absolute; left: 0; bottom: 0; background: white; padding: 13px 17px;
+      border-radius: 16px; box-shadow: var(--shadow); max-width: 240px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .photo-label span { font-size: 25px; }
+    .photo-label strong { display: block; color: var(--blue-dark); font-size: 13px; }
+    .photo-label small { display: block; color: var(--muted); font-size: 11px; }
+    .float-dot { position: absolute; right: 0; top: -5px; font-size: 38px; }
+    .hero-visual::before {
+      content: ""; position: absolute; width: 110px; height: 110px; right: -12px; bottom: 7px;
+      background: var(--pink-soft); border-radius: 50%; z-index: -1;
+    }
+
+    .section { padding: 54px 0; }
+    .section-tint { background: var(--blue-soft); }
+    .section-heading { margin-bottom: 26px; text-align: center; }
+    .section-heading .eyebrow { margin-bottom: 10px; }
+    h2 { color: var(--blue-dark); font-size: clamp(27px, 3vw, 36px); line-height: 1.2; margin: 0 0 10px; }
+    .section-heading p { color: var(--muted); margin: 0 auto; max-width: 620px; font-size: 14px; }
+    .activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .activity-card {
+      background: white; border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: 0 8px 24px rgba(48,86,120,.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .activity-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .activity-photo { height: 205px; background: #e7f3fc; }
+    .activity-content { padding: 22px; }
+    .tag { display: inline-block; padding: 5px 10px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: .4px; background: var(--pink-soft); color: var(--pink-dark); }
+    .activity-card h3 { color: var(--blue-dark); margin: 12px 0 8px; font-size: 20px; line-height: 1.25; }
+    .activity-card p { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+    .text-link { color: var(--pink-dark); font-size: 13px; font-weight: 900; }
+    .text-link:hover { text-decoration: underline; }
+
+    .routine-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .routine-card {
+      background: white; border: 1px solid #deebf5; border-radius: 18px;
+      padding: 19px; display: flex; align-items: flex-start; gap: 13px;
+    }
+    .routine-number {
+      width: 42px; height: 42px; flex: 0 0 42px; border-radius: 14px;
+      display: grid; place-items: center; background: var(--pink-soft); color: var(--pink-dark);
+      font-size: 13px; font-weight: 900;
+    }
+    .routine-card:nth-child(even) .routine-number { background: var(--blue-soft); color: var(--blue-dark); }
+    .routine-card h3 { margin: 0 0 5px; font-size: 15px; color: var(--blue-dark); line-height: 1.35; }
+    .routine-card p { margin: 0; font-size: 12px; color: var(--muted); }
+
+    .schedule-wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: stretch; }
+    .schedule-card { padding: 30px; border-radius: 24px; background: white; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .schedule-card h3 { margin: 0 0 8px; color: var(--blue-dark); font-size: 23px; }
+    .schedule-card p { color: var(--muted); font-size: 14px; margin: 0 0 17px; }
+    .day-pill { display: inline-flex; padding: 9px 15px; background: var(--pink-soft); color: var(--pink-dark); border-radius: 999px; font-size: 13px; font-weight: 900; }
+    .schedule-note { background: var(--pink-soft); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; justify-content: center; }
+    .schedule-note .icon { font-size: 35px; }
+    .schedule-note h3 { margin: 8px 0; color: var(--blue-dark); font-size: 20px; }
+    .schedule-note p { margin: 0; color: #7c6a79; font-size: 13px; }
+
+    .closing { padding: 28px 0 65px; }
+    .closing-panel {
+      background: var(--blue-dark); color: white; border-radius: 28px; padding: 34px;
+      display: flex; justify-content: space-between; align-items: center; gap: 24px;
+      overflow: hidden; position: relative;
+    }
+    .closing-panel h2 { color: white; margin-bottom: 8px; }
+    .closing-panel p { color: #dbeaf7; margin: 0; max-width: 610px; font-size: 14px; }
+    .closing-panel .btn { background: white; color: var(--blue-dark); white-space: nowrap; }
+
+    footer { background: white; border-top: 1px solid var(--line); padding: 26px 0; }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-brand strong { color: var(--blue-dark); display: block; font-size: 14px; }
+    .footer-brand small, .copyright { color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .footer-links a { color: #62758a; font-size: 12px; font-weight: 800; }
+    .footer-links a:hover { color: var(--pink-dark); }
+
+    @media (max-width: 900px) {
+      .nav-wrap { padding: 14px 0; align-items: flex-start; flex-direction: column; gap: 10px; }
+      .nav-links { justify-content: flex-start; }
+      .hero-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+      .hero-photo { height: 320px; }
+      .activity-grid { gap: 14px; }
+      .activity-content { padding: 17px; }
+      .routine-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 650px) {
+      .container { width: min(100% - 28px, 520px); }
+      .nav-links { gap: 3px; }
+      .nav-links a { padding: 7px 9px; font-size: 11px; }
+      .hero { padding-top: 35px; }
+      .hero-grid, .schedule-wrap { grid-template-columns: 1fr; }
+      .hero-grid { gap: 25px; }
+      h1 { font-size: 39px; }
+      .hero-copy { font-size: 14px; }
+      .hero-photo { height: 280px; }
+      .section { padding: 42px 0; }
+      .activity-grid, .routine-grid { grid-template-columns: 1fr; }
+      .activity-photo { height: 220px; }
+      .closing-panel { padding: 25px; align-items: flex-start; flex-direction: column; }
+      .closing-panel .btn { white-space: normal; }
+      .schedule-card, .schedule-note { padding: 24px; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html" aria-label="Beranda TK Muhammadiyah Saga">
+        <span class="brand-mark" aria-hidden="true">🏫</span>
+        <span><strong>TK Muhammadiyah Saga</strong><small>Website Media Informasi Sekolah</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a class="active" href="pembelajaran.html" aria-current="page">Pembelajaran</a>
+        <a href="orang-tua.php">Orang Tua</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🌈 BELAJAR SAMBIL BERMAIN</span>
+          <h1>Informasi<br>Pembelajaran</h1>
+          <p class="hero-copy">Mengenal kegiatan belajar, mengaji, bermain, dan berkreasi yang mendukung tumbuh kembang anak di TK Muhammadiyah Saga.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#kegiatan">Jelajahi Kegiatan <span aria-hidden="true">↘</span></a>
+            <a class="btn btn-secondary" href="profil.html">Profil Sekolah <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <span class="float-dot" aria-hidden="true">✦</span>
+          <img class="hero-photo" src="../Assets/Images/images/belajar-1.jpeg" alt="Dokumentasi kegiatan belajar anak di TK Muhammadiyah Saga" onerror="this.onerror=null;this.src='../assets/images/bermain-1.jpeg';">
+          <div class="photo-label">
+            <span aria-hidden="true">💗</span>
+            <div><strong>Ruang untuk Bertumbuh</strong><small>Belajar, bermain, dan berkreasi</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="kegiatan">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">KEGIATAN SEKOLAH</span>
+          <h2>Belajar dengan Ceria</h2>
+          <p>Setiap kegiatan menjadi kesempatan bagi anak untuk mengenal hal baru, berlatih mandiri, dan berinteraksi dengan teman.</p>
+        </div>
+        <div class="activity-grid">
+          <article class="activity-card">
+            <img class="activity-photo" src="../Assets/Images/images/belajar-2.jpeg" alt="Anak mengikuti kegiatan belajar" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/belajar-1.jpeg';">
+            <div class="activity-content">
+              <span class="tag">BELAJAR</span>
+              <h3>Kegiatan Belajar</h3>
+              <p>Anak mengikuti kegiatan pembelajaran yang membantu mengembangkan pengetahuan dan keterampilan dasar.</p>
+              <a class="text-link" href="../index.html">Kembali ke Beranda →</a>
+            </div>
+          </article>
+          <article class="activity-card">
+            <img class="activity-photo" src="../Assets/Images/images/baris-1.jpeg" alt="Dokumentasi kegiatan rutin anak di sekolah" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/belajar-3.jpeg';">
+            <div class="activity-content">
+              <span class="tag">PEMBIASAAN</span>
+              <h3>Kegiatan Mengaji</h3>
+              <p>Kegiatan keagamaan dan pembiasaan berdoa menjadi bagian dari rutinitas sekolah.</p>
+              <a class="text-link" href="orang-tua.php">Informasi Sekolah →</a>
+            </div>
+          </article>
+          <article class="activity-card">
+            <img class="activity-photo" src="../Assets/Images/images/mewarnai-1.jpeg" alt="Kegiatan bermain dan berkreasi anak" loading="lazy" onerror="this.onerror=null;this.src='../assets/images/bermain-1.jpeg';">
+            <div class="activity-content">
+              <span class="tag">KREATIVITAS</span>
+              <h3>Bermain dan Berkreasi</h3>
+              <p>Bermain dan berkarya memberi ruang bagi anak untuk bereksplorasi serta mengekspresikan ide.</p>
+              <a class="text-link" href="galeri.html">Lihat Galeri →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">RUTINITAS HARIAN</span>
+          <h2>Langkah Kecil Setiap Hari</h2>
+          <p>Berikut gambaran rutinitas harian anak di sekolah.</p>
+        </div>
+        <div class="routine-grid">
+          <article class="routine-card"><span class="routine-number">01</span><div><h3>Penyambutan dan Berbaris</h3><p>Anak disambut saat datang dan mengikuti kegiatan berbaris.</p></div></article>
+          <article class="routine-card"><span class="routine-number">02</span><div><h3>Persiapan dan Doa</h3><p>Anak menyiapkan diri dan berdoa sebelum belajar.</p></div></article>
+          <article class="routine-card"><span class="routine-number">03</span><div><h3>Belajar dan Mengaji</h3><p>Anak mengikuti kegiatan belajar serta pembiasaan mengaji.</p></div></article>
+          <article class="routine-card"><span class="routine-number">04</span><div><h3>Istirahat dan Cuci Tangan</h3><p>Anak beristirahat dan membiasakan diri menjaga kebersihan.</p></div></article>
+          <article class="routine-card"><span class="routine-number">05</span><div><h3>Doa Sebelum Makan dan Bermain</h3><p>Anak berdoa sebelum makan, kemudian bermain bersama.</p></div></article>
+          <article class="routine-card"><span class="routine-number">06</span><div><h3>Persiapan Pulang</h3><p>Anak bersiap pulang setelah kegiatan sekolah selesai.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="jadwal">
+      <div class="container schedule-wrap">
+        <div class="schedule-card">
+          <span class="eyebrow">JADWAL SEKOLAH</span>
+          <h3>Jadwal Pembelajaran</h3>
+          <p>Kegiatan sekolah berlangsung pada hari kerja. Untuk informasi jam masuk dan pulang yang lebih rinci, silakan menghubungi pihak sekolah.</p>
+          <span class="day-pill">📅 Senin – Jumat</span>
+        </div>
+        <aside class="schedule-note">
+          <span class="icon" aria-hidden="true">🌷</span>
+          <h3>Setiap Anak Bertumbuh dengan Cara Berbeda</h3>
+          <p>Lingkungan yang positif membantu anak belajar, bermain, dan membangun kebiasaan baik bersama guru dan teman.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <div class="closing-panel">
+          <div>
+            <h2>Belajar, Bermain, dan Bertumbuh</h2>
+            <p>Kenali lebih dekat lingkungan dan informasi TK Muhammadiyah Saga melalui halaman profil sekolah.</p>
+          </div>
+          <a class="btn" href="profil.html">Kenali Sekolah Kami <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <strong>TK Muhammadiyah Saga</strong>
+        <small>Website Media Informasi Sekolah</small>
+      </div>
+      <nav class="footer-links" aria-label="Navigasi footer">
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+      <div class="copyright">© 2026 TK Muhammadiyah Saga</div>
+    </div>
+  </footer>
+</body>
+</html>

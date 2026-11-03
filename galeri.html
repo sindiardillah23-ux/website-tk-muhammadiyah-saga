@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Kegiatan | TK Muhammadiyah Saga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #8bc9f5;
+      --blue-dark: #397eae;
+      --blue-light: #edf8ff;
+      --pink: #f5b8d2;
+      --pink-light: #fff0f6;
+      --purple: #bdb1f5;
+      --yellow: #ffe8a3;
+      --green: #bcebd8;
+      --ink: #34445b;
+      --muted: #7d899b;
+      --white: #ffffff;
+      --shadow: 0 8px 25px rgba(74, 120, 160, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f8fbff;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    button, a {
+      font: inherit;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* HEADER */
+    .topbar {
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #edf1f7;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-wrap {
+      max-width: 1200px;
+      min-height: 78px;
+      margin: auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 210px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: var(--blue-light);
+      border-radius: 16px;
+      font-size: 27px;
+    }
+
+    .brand h2 {
+      font-size: 15px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .brand p {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--pink-light);
+      color: #bd5f8b;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 65px 24px 72px;
+      background:
+        radial-gradient(circle at 10% 20%, #ffffff 0 7%, transparent 7.3%),
+        radial-gradient(circle at 90% 75%, #fff 0 6%, transparent 6.3%),
+        linear-gradient(120deg, #eaf7ff, #fff0f6);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 15px;
+      background: white;
+      border: 1px solid #e9eff7;
+      border-radius: 30px;
+      color: var(--blue-dark);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 49px);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #df80ad;
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      margin: auto;
+      color: #65768b;
+      font-size: 15px;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .stat {
+      padding: 10px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 5px 15px rgba(74,120,160,.06);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .stat span {
+      color: #d875a4;
+    }
+
+    .decoration {
+      position: absolute;
+      font-size: 35px;
+      opacity: .7;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .d1 { left: 8%; top: 23%; }
+    .d2 { right: 10%; top: 17%; animation-delay: .8s; }
+    .d3 { left: 15%; bottom: 15%; animation-delay: 1.4s; }
+    .d4 { right: 15%; bottom: 13%; animation-delay: .4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-9px) rotate(4deg); }
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 1200px;
+      padding: 0 24px;
+      margin: 0 auto;
+    }
+
+    .gallery-section {
+      padding: 48px 0 70px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow {
+      color: #d875a4;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(23px, 3vw, 31px);
+      font-weight: 900;
+      margin-top: 3px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .count-label {
+      flex-shrink: 0;
+      padding: 9px 14px;
+      border-radius: 13px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* FILTER */
+    .filters {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      padding: 10px 16px;
+      border: 1px solid #e7edf5;
+      border-radius: 30px;
+      background: white;
+      color: #68778b;
+      font-size: 12px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--pink);
+      color: #bd5f8b;
+    }
+
+    .filter-btn.active {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      color: white;
+      box-shadow: 0 5px 13px rgba(57,126,174,.18);
+    }
+
+    /* ACTIVITY GROUP */
+    .activity-group {
+      margin-bottom: 38px;
+      scroll-margin-top: 100px;
+    }
+
+    .activity-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .activity-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 25px;
+    }
+
+    .activity-group:nth-of-type(odd) .activity-icon {
+      background: var(--pink-light);
+    }
+
+    .activity-group:nth-of-type(even) .activity-icon {
+      background: var(--blue-light);
+    }
+
+    .activity-heading h3 {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .activity-heading p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .photo-count {
+      margin-left: auto;
+      padding: 6px 10px;
+      background: white;
+      border: 1px solid #e8eef5;
+      border-radius: 20px;
+      font-size: 11px;
+      color: #74849a;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    /* PHOTO GRID */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 19px;
+    }
+
+    .photo-card {
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 21px;
+      background: white;
+      border: 1px solid #edf1f7;
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(74,120,160,.16);
+    }
+
+    .photo-button {
+      display: block;
+      width: 100%;
+      position: relative;
+      border: 0;
+      background: #edf5fb;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .photo-button img {
+      display: block;
+      width: 100%;
+      height: 215px;
+      object-fit: cover;
+      transition: transform .35s;
+    }
+
+    .photo-card:hover .photo-button img {
+      transform: scale(1.04);
+    }
+
+    .photo-number {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: rgba(255,255,255,.95);
+      padding: 5px 10px;
+      border-radius: 20px;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .zoom-icon {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,.94);
+      font-size: 17px;
+    }
+
+    .photo-info {
+      padding: 15px 16px 17px;
+    }
+
+    .photo-info h4 {
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .photo-info p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .photo-tag {
+      display: inline-block;
+      margin-top: 11px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: var(--pink-light);
+      color: #bc6690;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      color: var(--muted);
+    }
+
+    /* CLOSING SECTION */
+    .closing {
+      padding: 36px 24px;
+      margin-bottom: 65px;
+      border-radius: 27px;
+      text-align: center;
+      background: linear-gradient(120deg, #eaf7ff, #fff0f6);
+    }
+
+    .closing .emoji {
+      font-size: 35px;
+      margin-bottom: 7px;
+    }
+
+    .closing h2 {
+      font-size: 23px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .closing p {
+      color: #6f7f93;
+      font-size: 13px;
+      max-width: 570px;
+      margin: auto;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 19px;
+      border-radius: 14px;
+      background: var(--blue-dark);
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .back-button:hover {
+      background: #286a98;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: white;
+      border-top: 1px solid #edf1f7;
+      padding: 28px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner strong {
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .footer-inner p {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer-heart {
+      color: #df80ad;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(28, 39, 56, .88);
+      padding: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox-content {
+      width: min(900px, 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: 16px;
+      background: white;
+    }
+
+    .lightbox-caption {
+      color: white;
+      font-weight: 900;
+      margin-top: 12px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      right: 0;
+      top: -43px;
+      border: 0;
+      border-radius: 50%;
+      width: 37px;
+      height: 37px;
+      background: white;
+      color: var(--ink);
+      font-size: 23px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-wrap {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .brand {
+        align-self: flex-start;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .photo-button img {
+        height: 210px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-wrap {
+        padding: 12px 15px;
+      }
+
+      .nav-links {
+        gap: 3px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+        padding: 7px 8px;
+      }
+
+      .hero {
+        padding: 48px 17px 52px;
+      }
+
+      .decoration {
+        font-size: 24px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .gallery-section {
+        padding-top: 35px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .filters {
+        gap: 7px;
+      }
+
+      .filter-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+      }
+
+      .photo-card {
+        border-radius: 15px;
+      }
+
+      .photo-button img {
+        height: 145px;
+      }
+
+      .photo-info {
+        padding: 11px;
+      }
+
+      .photo-info h4 {
+        font-size: 12px;
+      }
+
+      .photo-info p {
+        font-size: 11px;
+      }
+
+      .photo-count {
+        font-size: 10px;
+        padding: 5px 8px;
+      }
+
+      .activity-heading h3 {
+        font-size: 15px;
+      }
+
+      .activity-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 21px;
+      }
+
+      .closing {
+        padding: 27px 17px;
+      }
+    }/* ===== ANIMASI GALERI MODERN ===== */
+
+/* Judul muncul saat halaman dibuka */
+.hero-label,
+.hero h1,
+.hero-desc,
+.hero-stats {
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero h1 { animation-delay: 0.15s; }
+.hero-desc { animation-delay: 0.3s; }
+.hero-stats { animation-delay: 0.45s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Foto muncul saat halaman di-scroll */
+.photo-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease,
+              box-shadow 0.35s ease;
+}
+
+.photo-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 35px rgba(74,120,160,.2);
+}
+
+.photo-button img {
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-button img {
+  transform: scale(1.06);
+}
+
+/* Slideshow */
+.gallery-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 35px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #eaf5ff;
+  box-shadow: 0 10px 28px rgba(74,120,160,.15);
+}
+
+.gallery-slideshow img {
+  display: block;
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+}
+
+.slideshow-caption {
+  padding: 13px 18px;
+  text-align: center;
+  color: #24476a;
+  background: white;
+  font-weight: 800;
+}
+
+.slideshow-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px;
+}
+
+.slideshow-controls button {
+  border: 0;
+  border-radius: 20px;
+  padding: 9px 17px;
+  background: #dceeff;
+  color: #24476a;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.slideshow-controls button:hover {
+  background: #f8dce9;
+}
+
+@media (max-width: 600px) {
+  .gallery-slideshow img {
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-label,
+  .hero h1,
+  .hero-desc,
+  .hero-stats,
+  .photo-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .photo-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gallery-slideshow img {
+    transition: none;
+  }
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="nav-wrap">
+      <a href="../index.html" class="brand">
+        <div class="brand-logo">🏫</div>
+        <div>
+          <h2>TK Muhammadiyah Saga</h2>
+          <p>Tempat tumbuh dan belajar bersama</p>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="pembelajaran.html">Pembelajaran</a>
+        <a href="orang-tua.php">Orang Tua</a>
+        <a href="galeri.html" class="active">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="decoration d1">☁️</span>
+    <span class="decoration d2">⭐</span>
+    <span class="decoration d3">🌈</span>
+    <span class="decoration d4">🩷</span>
+
+    <div class="hero-inner">
+      <div class="hero-label">📸 Cerita kecil, kenangan indah</div>
+
+      <h1>Galeri <span>Kegiatan</span></h1>
+
+      <p class="hero-desc">
+        Yuk, lihat keseruan kegiatan anak-anak TK Muhammadiyah Saga!
+        Setiap foto menyimpan cerita tentang belajar, bermain,
+        berkreasi, dan pengalaman baru.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat">📷 <span id="totalPhotos">24</span> Foto</div>
+        <div class="stat">🎨 <span id="totalActivities">9</span> Kegiatan</div>
+        <div class="stat">💙 Penuh Cerita</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <main class="container">
+    <section class="gallery-section">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Kenangan sekolah</div>
+          <h2>Jelajahi Kegiatan Kami ✨</h2>
+          <p>Pilih kategori untuk menemukan kegiatan yang kamu cari.</p>
+        </div>
+
+        <div class="count-label" id="visibleCount">24 foto ditampilkan</div>
+      </div>
+
+      <!-- FILTER BUTTONS -->
+      <div class="filters" aria-label="Filter galeri">
+        <button class="filter-btn active" data-filter="all">🌈 Semua</button>
+        <button class="filter-btn" data-filter="kunjungan">🚌 Kunjungan</button>
+        <button class="filter-btn" data-filter="pawai">🎉 Pawai</button>
+        <button class="filter-btn" data-filter="sekolah">🏫 Kegiatan Sekolah</button>
+        <button class="filter-btn" data-filter="belajar">📚 Belajar & Bermain</button>
+      </div>
+
+      <div id="galleryContainer"></div>
+
+      <div class="empty-state" id="emptyState">
+        Belum ada foto untuk kategori ini. 🌷
+      </div>
+
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="emoji">🌼 🧸 🌈</div>
+      <h2>Setiap Hari Ada Cerita Baru!</h2>
+      <p>
+        Belajar, bermain, dan tumbuh bersama menjadi bagian
+        indah dari perjalanan anak-anak TK Muhammadiyah Saga.
+      </p>
+      <a href="../index.html" class="back-button">← Kembali ke Beranda</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>🏫 TK Muhammadiyah Saga</strong>
+        <p>Website Media Informasi Sekolah</p>
+      </div>
+
+      <p>Belajar dengan gembira, tumbuh bersama <span class="footer-heart">♥</span></p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX: FOTO DIPERBESAR -->
+  <div class="lightbox" id="lightbox" role="dialog"
+       aria-modal="true" aria-label="Pratinjau foto">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightbox"
+              aria-label="Tutup foto">&times;</button>
+      <img id="lightboxImage" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    /*
+      NAMA FILE DI BAWAH INI ADALAH CONTOH.
+      Pastikan nama dan ekstensi sesuai dengan file foto milikmu.
+      Semua foto diletakkan di folder assets/images.
+    */
+
+    const activities = [
+      {
+        title: "Kunjungan ke Kantor Pemadam Kebakaran",
+        description: "Mengenal petugas dan edukasi keselamatan.",
+        icon: "🚒",
+        category: "kunjungan",
+        photos: [
+          { file: "Pemadam-1.jpeg", caption: "Kunjungan ke Kantor Pemadam Kebakaran" },
+          { file: "Pemadam-2.jpeg", caption: "Melihat mobil pemadam kebakaran" },
+          { file: "Pemadam-3.jpeg", caption: "Pengalaman edukatif bersama petugas" }
+        ]
+      },
+      {
+        title: "Kunjungan ke Kebun Jagung",
+        description: "Melihat kebun dan proses panen jagung.",
+        icon: "🌽",
+        category: "kunjungan",
+        photos: [
+          { file: "jagung-1.jpeg", caption: "Berkunjung ke kebun jagung" },
+          { file: "jagung-2.jpeg", caption: "Melihat proses panen jagung" }
+        ]
+      },
+      {
+        title: "Senam Bersama",
+        description: "Bergerak aktif dan menjaga kesehatan.",
+        icon: "🤸",
+        category: "sekolah",
+        photos: [
+          { file: "senam-1.jpeg", caption: "Kegiatan senam anak-anak" },
+          { file: "senam-2.jpeg", caption: "Bergerak sehat bersama teman" }
+        ]
+      },
+      {
+        title: "Pawai di Belopa",
+        description: "Dokumentasi partisipasi dalam kegiatan pawai.",
+        icon: "🎉",
+        category: "pawai",
+        photos: [
+          { file: "belopa-1.jpeg", caption: "Kegiatan pawai di Belopa" },
+          { file: "belopa-2.jpeg", caption: "Momen kebersamaan saat pawai" }
+        ]
+      },
+      {
+        title: "Lomba Mewarnai",
+        description: "Perwakilan sekolah mengikuti lomba mewarnai.",
+        icon: "🖍️",
+        category: "sekolah",
+        photos: [
+          { file: "mewarnai-1.jpeg", caption: "Perwakilan sekolah dalam lomba mewarnai" }
+        ]
+      },
+      {
+        title: "Baris-Berbaris di Depan Kelas",
+        description: "Pembiasaan sebelum memulai kegiatan belajar.",
+        icon: "🏫",
+        category: "sekolah",
+        photos: [
+          { file: "baris-1.jpeg", caption: "Anak-anak berbaris di depan kelas" },
+          { file: "baris-2.jpeg", caption: "Bersiap memulai kegiatan sekolah" },
+          { file: "baris-3.jpeg", caption: "Pembiasaan baris-berbaris" }
+        ]
+      },
+      {
+        title: "Pawai di Bajo",
+        description: "Dokumentasi kegiatan pawai di Bajo.",
+        icon: "🥁",
+        category: "pawai",
+        photos: [
+          { file: "bajo-1.jpeg", caption: "Kegiatan pawai di Bajo" },
+          { file: "bajo-2.jpeg", caption: "Momen kebersamaan saat pawai" },
+          { file: "bajo-3.jpeg", caption: "Dokumentasi pawai sekolah" }
+        ]
+      },
+      {
+        title: "Bermain Bersama",
+        description: "Belajar berinteraksi melalui kegiatan bermain.",
+        icon: "🧸",
+        category: "belajar",
+        photos: [
+          { file: "bermain-1.jpeg", caption: "Waktu bermain bersama teman" },
+          { file: "bermain-2.jpeg", caption: "Bermain dengan gembira" },
+          { file: "bermain-3.jpeg", caption: "Keceriaan di waktu bermain" }
+        ]
+      },
+      {
+        title: "Belajar dan Berekreasi",
+        description: "Belajar, bereksplorasi, dan mencoba hal baru.",
+        icon: "🎨",
+        category: "belajar",
+        photos: [
+          { file: "belajar-1.jpeg", caption: "Kegiatan belajar anak-anak" },
+          { file: "belajar-2.jpeg", caption: "Belajar melalui pengalaman" },
+          { file: "belajar-3.jpeg", caption: "Berkreasi bersama teman" },
+          { file: "belajar-4.jpeg", caption: "Eksplorasi dan kegiatan kreatif" },
+          { file: "belajar-5.jpeg", caption: "Momen belajar dan berekreasi" }
+        ]
+      }
+    ];
+
+    const galleryContainer = document.getElementById("galleryContainer");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const visibleCount = document.getElementById("visibleCount");
+    const emptyState = document.getElementById("emptyState");
+
+    const allPhotos = activities.reduce(
+      (total, activity) => total + activity.photos.length, 0
+    );
+
+    document.getElementById("totalPhotos").textContent = allPhotos;
+    document.getElementById("totalActivities").textContent = activities.length;
+
+    function renderGallery(filter = "all") {
+      galleryContainer.innerHTML = "";
+      let shownPhotos = 0;
+
+      activities.forEach((activity) => {
+        if (filter !== "all" && activity.category !== filter) return;
+
+        shownPhotos += activity.photos.length;
+
+        const group = document.createElement("section");
+        group.className = "activity-group";
+
+        const heading = document.createElement("div");
+        heading.className = "activity-heading";
+
+        const icon = document.createElement("div");
+        icon.className = "activity-icon";
+        icon.textContent = activity.icon;
+
+        const headingText = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = activity.title;
+
+        const description = document.createElement("p");
+        description.textContent = activity.description;
+
+        headingText.append(title, description);
+
+        const count = document.createElement("span");
+        count.className = "photo-count";
+        count.textContent = activity.photos.length + " foto";
+
+        heading.append(icon, headingText, count);
+
+        const grid = document.createElement("div");
+        grid.className = "photo-grid";
+
+        activity.photos.forEach((photo, index) => {
+          const card = document.createElement("article");
+          card.className = "photo-card";
+
+          const photoButton = document.createElement("button");
+          photoButton.className = "photo-button";
+          photoButton.type = "button";
+          photoButton.setAttribute("aria-label", "Perbesar foto: " + photo.caption);
+
+          const image = document.createElement("img");
+          image.src = "../Assets/Images/images/" + photo.file;
+          image.alt = photo.caption;
+          image.loading = "lazy";
+
+          image.addEventListener("error", () => {
+            image.alt = "Foto belum ditemukan: " + photo.file;
+            image.style.display = "none";
+
+            const missing = document.createElement("div");
+            missing.style.cssText =
+              "height:215px;display:grid;place-content:center;text-align:center;" +
+              "padding:15px;color:#718198;font-size:12px;background:#edf5fb;";
+            missing.textContent = "📷 Foto belum ditemukan: " + photo.file;
+
+            photoButton.prepend(missing);
+          }, { once: true });
+
+          const number = document.createElement("span");
+          number.className = "photo-number";
+          number.textContent = "Foto " + (index + 1);
+
+          const zoom = document.createElement("span");
+          zoom.className = "zoom-icon";
+          zoom.textContent = "🔍";
+
+          photoButton.append(image, number, zoom);
+
+          photoButton.addEventListener("click", () => {
+            if (image.style.display === "none") return;
+
+            document.getElementById("lightboxImage").src = image.src;
+            document.getElementById("lightboxImage").alt = photo.caption;
+            document.getElementById("lightboxCaption").textContent =
+              activity.title + " — " + photo.caption;
+
+            document.getElementById("lightbox").classList.add("show");
+          });
+
+          const info = document.createElement("div");
+          info.className = "photo-info";
+
+          const photoTitle = document.createElement("h4");
+          photoTitle.textContent = photo.caption;
+
+          const photoDescription = document.createElement("p");
+          photoDescription.textContent = "Dokumentasi TK Muhammadiyah Saga";
+
+          const tag = document.createElement("span");
+          tag.className = "photo-tag";
+          tag.textContent = activity.icon + " " + activity.title;
+
+          info.append(photoTitle, photoDescription, tag);
+          card.append(photoButton, info);
+          grid.appendChild(card);
+        });
+
+        group.append(heading, grid);
+        galleryContainer.appendChild(group);
+      });
+
+      visibleCount.textContent = shownPhotos + " foto ditampilkan";
+      emptyState.style.display = shownPhotos === 0 ? "block" : "none";
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        renderGallery(button.dataset.filter);
+      });
+    });
+
+    const lightbox = document.getElementById("lightbox");
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      document.getElementById("lightboxImage").src = "";
+    }
+
+    document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+
+    renderGallery();
+    /* ===== SLIDESHOW OTOMATIS ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryImages = Array.from(
+    document.querySelectorAll(".photo-button img")
+  ).filter(function (img) {
+    return img.complete && img.naturalWidth > 0;
+  });
+
+  if (galleryImages.length === 0) return;
+
+  const slideshow = document.createElement("section");
+  slideshow.className = "gallery-slideshow";
+
+  const slideImage = document.createElement("img");
+  slideImage.src = galleryImages[0].src;
+  slideImage.alt = galleryImages[0].alt || "Foto kegiatan sekolah";
+  slideImage.loading = "eager";
+
+  const caption = document.createElement("div");
+  caption.className = "slideshow-caption";
+  caption.textContent = slideImage.alt;
+
+  const controls = document.createElement("div");
+  controls.className = "slideshow-controls";
+
+  const previousButton = document.createElement("button");
+  previousButton.type = "button";
+  previousButton.textContent = "← Sebelumnya";
+
+  const pauseButton = document.createElement("button");
+  pauseButton.type = "button";
+  pauseButton.textContent = "Jeda";
+
+  const nextButton = document.createElement("button");
+  nextButton.type = "button";
+  nextButton.textContent = "Berikutnya →";
+
+  controls.append(previousButton, pauseButton, nextButton);
+  slideshow.append(slideImage, caption, controls);
+
+  const heading = Array.from(document.querySelectorAll("h1, h2"))
+    .find(function (el) {
+      return el.textContent.toLowerCase().includes("galeri kegiatan");
+    });
+
+  if (heading) {
+    heading.insertAdjacentElement("afterend", slideshow);
+  } else {
+    document.querySelector("main")?.prepend(slideshow);
+  }
+
+  let currentIndex = 0;
+  let timer = null;
+  let paused = false;
+
+  function showSlide(index) {
+    currentIndex =
+      (index + galleryImages.length) % galleryImages.length;
+
+    const original = galleryImages[currentIndex];
+
+    slideImage.style.opacity = "0";
+
+    setTimeout(function () {
+      slideImage.src = original.src;
+      slideImage.alt = original.alt || "Foto kegiatan sekolah";
+      caption.textContent = slideImage.alt;
+      slideImage.style.opacity = "1";
+    }, 180);
+  }
+
+  function startSlideshow() {
+    clearInterval(timer);
+
+    if (!paused && galleryImages.length > 1) {
+      timer = setInterval(function () {
+        showSlide(currentIndex + 1);
+      }, 3500);
+    }
+  }
+
+  previousButton.addEventListener("click", function () {
+    showSlide(currentIndex - 1);
+    startSlideshow();
+  });
+
+  nextButton.addEventListener("click", function () {
+    showSlide(currentIndex + 1);
+    startSlideshow();
+  });
+
+  pauseButton.addEventListener("click", function () {
+    paused = !paused;
+    pauseButton.textContent = paused ? "Lanjutkan" : "Jeda";
+    startSlideshow();
+  });
+
+  startSlideshow();
+
+  /* Foto muncul saat digulir */
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".photo-card").forEach(function (card) {
+      card.style.animationPlayState = "paused";
+      observer.observe(card);
+    });
+  }
+});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Sekolah | TK Muhammadiyah Saga</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #79b9ed;
+      --blue-dark: #28618d;
+      --blue-light: #eaf6ff;
+      --pink: #f5b9d0;
+      --pink-light: #fff0f6;
+      --purple: #b8a9ee;
+      --text: #34465a;
+      --muted: #738397;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f8fbff;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 18px #527da512;
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--blue-dark);
+      font-size: 17px;
+    }
+
+    .brand-icon {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--blue-light);
+      font-size: 25px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    nav a {
+      padding: 9px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--pink-light);
+      color: #c35483;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 65px 0 75px;
+      background:
+        radial-gradient(circle at 8% 15%, #ffffff 0 5%, transparent 5.5%),
+        radial-gradient(circle at 92% 80%, #ffffff 0 4%, transparent 4.5%),
+        linear-gradient(120deg, #eaf6ff, #fff0f6);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: white;
+      color: #4587bd;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 17px;
+      box-shadow: 0 5px 20px #648bb10d;
+    }
+
+    h1 {
+      font-size: clamp(34px, 4.3vw, 54px);
+      line-height: 1.15;
+      font-weight: 900;
+      color: var(--blue-dark);
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #dc79a3;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: #64768a;
+      max-width: 490px;
+      margin-bottom: 27px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue-dark);
+      color: white;
+      padding: 12px 23px;
+      border-radius: 25px;
+      font-weight: 900;
+      font-size: 13px;
+      box-shadow: 0 7px 18px #28618d24;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-photo {
+      position: relative;
+      padding: 12px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 18px 45px #527da51a;
+      transform: rotate(1deg);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 400px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 22px;
+      transform: none;
+    }
+
+    .photo-label {
+      position: absolute;
+      bottom: -17px;
+      left: 25px;
+      background: white;
+      border-radius: 17px;
+      padding: 12px 18px;
+      box-shadow: 0 7px 22px #527da51c;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--blue-dark);
+      transform: rotate(-1deg);
+    }
+
+    /* SECTION */
+    section {
+      padding: 68px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 35px;
+    }
+
+    .section-heading .mini {
+      color: #d36d98;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .section-heading h2 {
+      color: var(--blue-dark);
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.25;
+      font-weight: 900;
+      margin: 8px 0 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* HISTORY */
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .history-card {
+      padding: 26px;
+      background: white;
+      border: 1px solid #e9f0f8;
+      border-radius: 23px;
+      box-shadow: 0 8px 25px #426b9510;
+      transition: .25s;
+    }
+
+    .history-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px #426b9518;
+    }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      margin-bottom: 17px;
+    }
+
+    .icon-blue { background: var(--blue-light); }
+    .icon-pink { background: var(--pink-light); }
+    .icon-purple { background: #f1edff; }
+
+    .history-card h3 {
+      font-size: 18px;
+      color: var(--blue-dark);
+      font-weight: 900;
+      margin-bottom: 9px;
+    }
+
+    .history-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* PRINCIPAL */
+    .principal-section {
+      background: white;
+    }
+
+    .principal-box {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: center;
+      gap: 45px;
+      background: linear-gradient(120deg, #eaf6ff, #fff2f7);
+      padding: 32px;
+      border-radius: 30px;
+    }
+
+    .principal-photo {
+      background: white;
+      padding: 10px;
+      border-radius: 25px;
+      box-shadow: 0 10px 28px #527da512;
+    }
+
+    .principal-photo img {
+      display: block;
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 18px;
+    }
+
+    .principal-info .mini {
+      font-size: 12px;
+      font-weight: 900;
+      color: #d36d98;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .principal-info h2 {
+      font-size: 30px;
+      line-height: 1.3;
+      color: var(--blue-dark);
+      margin: 8px 0 14px;
+      font-weight: 900;
+    }
+
+    .principal-info p {
+      color: #65778a;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .name-tag {
+      display: inline-block;
+      background: white;
+      color: var(--blue-dark);
+      border-radius: 15px;
+      padding: 10px 16px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    /* IDENTITY */
+    .identity-card {
+      background: white;
+      border: 1px solid #e8eff8;
+      border-radius: 25px;
+      padding: 28px;
+      box-shadow: 0 8px 28px #426b950d;
+      overflow-x: auto;
+    }
+
+    .identity-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 400px;
+    }
+
+    .identity-table th,
+    .identity-table td {
+      padding: 15px 17px;
+      text-align: left;
+      border-bottom: 1px solid #edf1f7;
+      font-size: 14px;
+    }
+
+    .identity-table th {
+      width: 34%;
+      background: #f0f8ff;
+      color: var(--blue-dark);
+      font-weight: 900;
+    }
+
+    .identity-table tr:last-child th,
+    .identity-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ACTIVITIES */
+    .activities {
+      background: #f0f8ff;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .activity-card {
+      background: white;
+      padding: 26px 22px;
+      border-radius: 22px;
+      text-align: center;
+      border: 1px solid #e6eff9;
+    }
+
+    .activity-card .emoji {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .activity-card h3 {
+      color: var(--blue-dark);
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .activity-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* BOTTOM BANNER */
+    .closing {
+      padding: 55px 0;
+    }
+
+    .closing-box {
+      text-align: center;
+      background: linear-gradient(110deg, #80bdeb, #f2b9d0);
+      padding: 42px 25px;
+      border-radius: 28px;
+      color: white;
+    }
+
+    .closing-box h2 {
+      font-size: 28px;
+      line-height: 1.3;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .closing-box p {
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .closing-box .button {
+      background: white;
+      color: var(--blue-dark);
+      box-shadow: none;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #244d70;
+      color: white;
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-title {
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #d9e9f5;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .footer-links a:hover {
+      color: var(--pink);
+    }
+
+    @media (max-width: 850px) {
+      .navbar {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero-grid,
+      .principal-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .hero-photo {
+        position: relative;
+        width: 100px;
+        max-width: 340%;
+        margin: 0 auto;
+        padding: 12px;
+        backround: white;
+        border-radius: 30px;
+        box-shadow: 0 18px 45px #527da51a;
+      }
+
+      .history-grid,
+      .activity-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .principal-photo {
+        max-width: 420px;
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .history-grid,
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 45px 0 55px;
+      }
+
+      .hero-photo img {
+        width: 100%;
+        height: 245px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+      }
+
+      .principal-box {
+        padding: 18px;
+        gap: 25px;
+      }
+
+      .principal-photo img {
+        height: 260px;
+      }
+
+      .identity-card {
+        padding: 12px;
+      }
+
+      .identity-table th,
+      .identity-table td {
+        padding: 11px;
+        font-size: 12px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="../index.html">
+        <span class="brand-icon">🎒</span>
+        <span>TK Muhammadiyah Saga</span>
+      </a>
+
+      <nav>
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html" class="active">Profil</a>
+        <a href="pembelajaran.html">Pembelajaran</a>
+        <a href="orang-tua.php">Orang Tua</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO PROFIL -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">🌈 Kenali sekolah kami</span>
+          <h1>Mengenal Lebih Dekat <span>TK Muhammadiyah Saga</span></h1>
+          <p>
+            Tempat anak-anak belajar, bermain, mengaji, dan mengembangkan
+            potensi diri dalam suasana yang menyenangkan.
+          </p>
+          <a href="#identitas" class="button">Kenali Sekolah Kami →</a>
+        </div>
+
+        <div class="hero-photo">
+          <img
+            src="../Assets/Images/images/foto-sekolah.jpeg"
+            alt="Foto Gedung TK Muhammadiyah Saga"
+            onerror="this.style.display='none'; this.parentElement.classList.add('photo-error')"
+          >
+          <div class="photo-label">🏫 TK Muhammadiyah Saga</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEJARAH, VISI MISI, LINGKUNGAN -->
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <span class="mini">Tentang sekolah</span>
+          <h2>Awal Perjalanan Kami 💙</h2>
+          <p>
+            Mengenal perjalanan, tujuan pendidikan, dan lingkungan
+            belajar TK Muhammadiyah Saga.
+          </p>
+        </div>
+
+        <div class="history-grid">
+          <article class="history-card">
+            <div class="card-icon icon-blue">📖</div>
+            <h3>Sejarah Singkat</h3>
+            <p>
+              TK Muhammadiyah Saga berdiri pada 19 Juni 2002 dan menjadi
+              salah satu tempat pendidikan anak usia dini di Desa Saga.
+            </p>
+          </article>
+
+          <article class="history-card">
+            <div class="card-icon icon-pink">🌟</div>
+            <h3>Visi dan Misi</h3>
+            <p>
+              Mendukung tumbuh kembang anak melalui kegiatan belajar,
+              pembiasaan yang baik, dan pengenalan nilai-nilai keagamaan.
+            </p>
+          </article>
+
+          <article class="history-card">
+            <div class="card-icon icon-purple">🏡</div>
+            <h3>Lingkungan Sekolah</h3>
+            <p>
+              Lingkungan sekolah menjadi tempat anak mengenal teman,
+              belajar bersama, bermain, berkreasi, dan mengaji.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEPALA SEKOLAH -->
+    <section class="principal-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="mini">Pendidik kami</span>
+          <h2>Mengenal Kepala Sekolah 👩‍🏫</h2>
+          <p>
+            Sosok pendidik yang memimpin dan mendukung kegiatan
+            pendidikan di TK Muhammadiyah Saga.
+          </p>
+        </div>
+
+        <div class="principal-box">
+          <div class="principal-photo">
+            <img
+              src="../Assets/Images/images/kepala-sekolah.jpeg"
+              alt="Kepala sekolah TK Muhammadiyah Saga"
+              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;min-height:260px;display:grid;place-items:center;background:#eaf6ff;border-radius:18px;font-size:65px&quot;>👩‍🏫</div>')"
+            >
+          </div>
+
+          <div class="principal-info">
+            <span class="mini">Kepala sekolah</span>
+            <h2>Jinahari, S.Pd.I.</h2>
+            <p>
+              Bersama para pendidik, kepala sekolah mendukung pelaksanaan
+              kegiatan belajar dan pembentukan kebiasaan baik bagi anak.
+            </p>
+            <span class="name-tag">💗 Mendidik dengan kepedulian</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDENTITAS SEKOLAH -->
+    <section id="identitas">
+      <div class="container">
+        <div class="section-heading">
+          <span class="mini">Data sekolah</span>
+          <h2>Identitas Sekolah 🏫</h2>
+          <p>
+            Informasi umum mengenai TK Muhammadiyah Saga.
+          </p>
+        </div>
+
+        <div class="identity-card">
+          <table class="identity-table">
+            <tbody>
+              <tr>
+                <th>Nama Sekolah</th>
+                <td>TK Muhammadiyah Saga</td>
+              </tr>
+              <tr>
+                <th>NPSN</th>
+                <td>69889301</td>
+              </tr>
+              <tr>
+                <th>Status Sekolah</th>
+                <td>Swasta</td>
+              </tr>
+              <tr>
+                <th>Tahun Berdiri</th>
+                <td>2002</td>
+              </tr>
+              <tr>
+                <th>Akreditasi</th>
+                <td>B</td>
+              </tr>
+              <tr>
+                <th>Kepala Sekolah</th>
+                <td>Jinahari, S.Pd.I.</td>
+              </tr>
+              <tr>
+                <th>Operator Sekolah</th>
+                <td>Nur Laily</td>
+              </tr>
+              <tr>
+                <th>Alamat</th>
+                <td>Buntu Sapang, Desa Saga, Kecamatan Bajo, Kabupaten Luwu, Sulawesi Selatan</td>
+              </tr>
+              <tr>
+                <th>Hari Sekolah</th>
+                <td>Senin–Jumat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEGIATAN -->
+    <section class="activities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="mini">Belajar sambil tumbuh</span>
+          <h2>Kegiatan Seru di Sekolah 🎨</h2>
+          <p>
+            Anak-anak belajar melalui kegiatan yang mendukung pengetahuan,
+            kreativitas, kebiasaan baik, dan interaksi sosial.
+          </p>
+        </div>
+
+        <div class="activity-grid">
+          <article class="activity-card">
+            <div class="emoji">📚</div>
+            <h3>Kegiatan Belajar</h3>
+            <p>Mengenal pengetahuan baru melalui kegiatan belajar yang sesuai usia anak.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="emoji">📖</div>
+            <h3>Kegiatan Mengaji</h3>
+            <p>Mengenalkan anak pada kegiatan mengaji dan nilai-nilai keagamaan.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="emoji">🧸</div>
+            <h3>Bermain dan Berkreasi</h3>
+            <p>Memberikan ruang bagi anak untuk bermain, berkreasi, dan belajar bersama.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AJAKAN -->
+    <section class="closing">
+      <div class="container">
+        <div class="closing-box">
+          <h2>Setiap Anak Punya Cerita Hebat! 🌈</h2>
+          <p>
+            Mari mengenal lebih jauh kegiatan dan informasi
+            TK Muhammadiyah Saga.
+          </p>
+          <a href="pembelajaran.html" class="button">Lihat Informasi Pembelajaran →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">🎒 TK Muhammadiyah Saga</div>
+        <p>Website Media Informasi Sekolah</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="../index.html">Beranda</a>
+        <a href="pembelajaran.html">Pembelajaran</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="kontak.html">Kontak</a>
+      </div>
+
+      <p>© 2026 TK Muhammadiyah Saga</p>
+    </div>
+  </footer>
+
+</body>
+</html>
